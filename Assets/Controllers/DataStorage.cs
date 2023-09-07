@@ -4,18 +4,8 @@ using UnityEngine;
 
 public class DataStorage : MonoBehaviour
 {
-    int lives = 1;
-
     [SerializeField]
-    List<int> PoderesDesbloqueados;
-
-    [SerializeField]
-    int VidasIniciales;
-
-    private void Awake()
-    {
-        lives = VidasIniciales;
-    }
+    List<int> UnlockedPowers;
 
     // Start is called before the first frame update
     void Start()
@@ -29,3 +19,5 @@ public class DataStorage : MonoBehaviour
         
     }
 }
+
+

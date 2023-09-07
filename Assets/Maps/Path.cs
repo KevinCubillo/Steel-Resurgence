@@ -38,7 +38,7 @@ public class Path : MonoBehaviour
             Gizmos.color = Color.black;
             Gizmos.DrawWireSphere(positions[i] + currPosition, 0.5f);
             if (i < positions.Count - 1) {
-                Gizmos.color = Color.grey;
+                Gizmos.color = Color.cyan;
                 Gizmos.DrawLine(positions[i] + currPosition, positions[i + 1] + currPosition);
             }
         }
