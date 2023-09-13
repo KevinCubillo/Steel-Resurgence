@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Path : MonoBehaviour
-{
-    [SerializeField]
-    List<Vector3> positions;
+{  
+    [SerializeField] 
+    private List<Vector3> positions;
+    
+    public List<Vector3> Positions => positions;
 
     [SerializeField]
     Vector3 currPosition;
 
-    [SerializeField]
+   [SerializeField]
     Color NodeColor;
 
     private bool _gameStarted;
