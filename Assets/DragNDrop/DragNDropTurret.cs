@@ -7,7 +7,10 @@ using UnityEngine.EventSystems;
 public class DragNDropTurret : MonoBehaviour, IPointerDownHandler, IEndDragHandler, IBeginDragHandler, IDragHandler
 {
     [SerializeField]
-    GameObject TurretPrefab;
+    GameObject visualObject;
+
+    [SerializeField]
+    TurretSlot TurretObjectData;
 
     [SerializeField]
     GameObject Selector;
@@ -15,15 +18,20 @@ public class DragNDropTurret : MonoBehaviour, IPointerDownHandler, IEndDragHandl
     [SerializeField]
     GameObject SlotController;
 
+    private void Awake()
+    {
+        TurretObjectData.SetVisualObject(visualObject);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-       
+        TurretObjectData.SetVisualObject(visualObject);
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Selector.SendMessage("setHeldObject", TurretPrefab);
+        Selector.SendMessage("setHeldObject", TurretObjectData.copy());
     }
 
     public void OnEndDrag(PointerEventData eventData)

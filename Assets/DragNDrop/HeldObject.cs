@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class HeldObject : MonoBehaviour
 {
 
-    GameObject heldObject;
+    TurretSlot heldObject;
 
     GameObject drawnObject;
     Camera camerac;
@@ -36,15 +36,20 @@ public class HeldObject : MonoBehaviour
         }
     }
 
-    void setHeldObject(GameObject o) {
+    void setHeldObject(TurretSlot o) 
+    {
         heldObject = o;
-        drawnObject = Instantiate(o);
+        if (drawnObject != null)
+            Destroy(drawnObject);
+        if (o.GetVisualObject() != null)
+            drawnObject = Instantiate(o.GetVisualObject());
     }
 
     void removeHeldObject()
     {
         heldObject = null;
-        Destroy(drawnObject);
+        if(drawnObject != null)
+            Destroy(drawnObject);
         drawnObject = null;
     }
 

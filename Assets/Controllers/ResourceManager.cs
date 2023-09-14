@@ -12,13 +12,19 @@ public class ResourceManager : MonoBehaviour
     NumResource Scrap;
 
     [SerializeField]
-    NumResource Energy;
+    NumResource CardCooldown;
+
+    [SerializeField]
+    GameObject displayManager;
 
     private void Awake()
     {
         Lives.reset();
         Scrap.reset();
-        Energy.reset();
+        CardCooldown.reset();
+
+        displayManager.SendMessage("setLifes", Lives.value());
+        displayManager.SendMessage("setScrap", Scrap.value());
     }
 
     [SerializeField]
@@ -34,6 +40,44 @@ public class ResourceManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void giveResource(ResourceMessage message)
+    {
+        switch (message.name)
+        {
+            case "Lifes":
+                Lives.add(message.value);
+                displayManager.SendMessage("setLifes", Lives.value());
+                break;
+            case "Scrap":
+                Scrap.add(message.value);
+                displayManager.SendMessage("setScrap", Scrap.value());
+                break;
+            case "Cooldown":
+                CardCooldown.add(message.value);
+                break;
+        }
+    }
+
+    void consumeResource(ResourceMessage message) {
+        switch (message.name) {
+            case "Lifes":
+                Lives.sub(message.value);
+                displayManager.SendMessage("setLifes", Lives.value());
+                break;
+            case "Scrap":
+                Scrap.sub(message.value);
+                displayManager.SendMessage("setScrap", Scrap.value());
+                break;
+            case "Cooldown":
+                CardCooldown.sub(message.value);
+                break;
+        }
+    }
+
+    void CanBuy(buyMessage message) {
+        message.source.SendMessage(message.callbackMessage, message.cost <= Scrap.value());
     }
 }
 
@@ -126,4 +170,15 @@ public class NumResource
         currentValue = initialValue;
         return initialValue;
     }
+}
+
+struct ResourceMessage {
+    public string name;
+    public int value;
+}
+
+struct buyMessage {
+    public int cost;
+    public GameObject source;
+    public string callbackMessage;
 }
