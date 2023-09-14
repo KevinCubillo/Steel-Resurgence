@@ -16,11 +16,11 @@ public class EnemyMovement : MonoBehaviour
 
     private void Start()
     {
-        //target = LevelManager.main.path[pathIndex];
+        target = LevelManager.main.path[pathIndex];
     }
     private void Update()
     {
-        /*if (Vector2.Distance(target.position, tranform.position) <= 0.1f)
+        if (Vector2.Distance(target.position, tranform.position) <= 0.1f)
         {
             pathIndex++;
             target = LevelManager.main.path[pathIndex];
@@ -34,7 +34,7 @@ public class EnemyMovement : MonoBehaviour
             {
                 target = LevelManager.main.path[pathIndex];
             }   
-        }*/
+        }
     }
 
     private void FixedUpdate()
