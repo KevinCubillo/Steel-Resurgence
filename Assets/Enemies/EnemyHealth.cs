@@ -17,22 +17,25 @@ public static Action<Enemy> OnEnemyHit;
 [SerializeField] private float maxHealth = 10f;
 
 public float CurrentHealth { get; set; }
+
 private Image healthBar; 
 private Enemy enemy;
 
 private void Start(){
 
-   // CreateHealthBar();
+    CreateHealthBar();
     CurrentHealth = initialHealth;
     enemy = GetComponent<Enemy>();
 }
 
 private void Update(){
-
-    if (Input.GetKeyDown(KeyCode.P)){
+    //DealDamage(0.01f);
+    if (Input.GetKeyDown(KeyCode.I)){
+    Debug.Log("Enemy took damage");
     DealDamage(5f);
+   
     }
-    //healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, CurrentHealth / maxHealth, Time.deltaTime * 10f);
+    healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, CurrentHealth / maxHealth, Time.deltaTime * 10f);
 
 }
 
@@ -44,6 +47,7 @@ private void CreateHealthBar(){
 }
 
 public void DealDamage(float damage){
+    Debug.Log("Enemy took damage");
     CurrentHealth -= damage;
     if (CurrentHealth <= 0){
         CurrentHealth = 0;
