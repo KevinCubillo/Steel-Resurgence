@@ -13,7 +13,8 @@ public class Enemy : MonoBehaviour
     private Vector3 CurrentPointPosition;
 
 
-    [SerializeField] private int moveSpeed;
+    [SerializeField]
+    float moveSpeed;
     private int currentWaypointIndex;
   
 

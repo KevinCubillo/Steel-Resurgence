@@ -29,7 +29,7 @@ public class EnemyPooler : MonoBehaviour{
 
     public GameObject GetEnemyFromPool(){
         for (int i = 0; i < pool.Count; i++){
-            if (!pool[i].activeInHierarchy){
+            if (pool[i] != null && !pool[i].activeInHierarchy){
                 return pool[i];
             }
         }

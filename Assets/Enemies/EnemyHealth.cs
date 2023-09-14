@@ -32,10 +32,10 @@ private void Update(){
     //DealDamage(0.01f);
     if (Input.GetKeyDown(KeyCode.I)){
     Debug.Log("Enemy took damage");
-    DealDamage(5f);
+    DealDamage(1f);
    
     }
-    healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, CurrentHealth / maxHealth, Time.deltaTime * 10f);
+        healthBar.fillAmount = CurrentHealth / maxHealth;// Mathf.Lerp(healthBar.fillAmount, CurrentHealth / maxHealth, Time.deltaTime * 10f);
 
 }
 

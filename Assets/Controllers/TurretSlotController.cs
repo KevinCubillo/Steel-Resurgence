@@ -39,6 +39,9 @@ public class TurretSlotController : MonoBehaviour
     [SerializeField]
     GameObject ResourceController;
 
+    [SerializeField]
+    GameObject SlotImage;
+
 
     private void Awake()
     {
@@ -46,8 +49,11 @@ public class TurretSlotController : MonoBehaviour
         //emptyObject = Instantiate<GameObject>(emptyObject);
         emptySlot = new TurretSlot();
         slotContents = new List<TurretSlot>();
+        GameObject slotImage;
         for (int i = 0; i < slotsPositions.Count; i++) {
             slotContents.Add(emptySlot);
+            slotImage = Instantiate(SlotImage,transform);
+            slotImage.transform.position = slotsPositions[i];
         }
     }
 
@@ -72,7 +78,7 @@ public class TurretSlotController : MonoBehaviour
             bool selected = false;
             for (int i = 0; i < slotsPositions.Count; i++) {
                 dist = Vector3.Distance(pos, slotsPositions[i]);
-                if (dist < slotRadius || (wasUpgrading && dist < UIRadius)) {
+                if (dist < slotRadius || (wasUpgrading && lastSelectedSlot == i&& dist < UIRadius)) {
                     //print("Clicked slot at: "+ slotsPositions[i]);
                     lastSelectedSlot = i;
                     if (slotContents[i] != emptySlot)
@@ -135,6 +141,8 @@ public class TurretSlotController : MonoBehaviour
         {
             Gizmos.color = Color.white;
             Gizmos.DrawWireSphere(slotsPositions[i] + currPosition, slotRadius);
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(slotsPositions[i] + currPosition, UIRadius);
         }
     }
 
