@@ -22,15 +22,19 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private Path Path;
 
+    [Header ("Animation")]
+    private Animator animator;
+
+
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
         enemyHealth = GetComponent<EnemyHealth>(); 
         CurrentPointPosition = Path.Positions[0];
         Debug.Log("CurrentPointPosition" + CurrentPointPosition);
         currentWaypointIndex = 0;
-      
-
+    
     }
 
 
