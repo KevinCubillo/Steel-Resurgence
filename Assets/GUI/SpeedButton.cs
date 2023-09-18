@@ -8,7 +8,7 @@ public class SpeedButton : MonoBehaviour
     public Button button;
 
     [SerializeField]
-    [Range(0,3)]
+    [Range(0,10)]
     float targetSpeed;
 
     // Start is called before the first frame update

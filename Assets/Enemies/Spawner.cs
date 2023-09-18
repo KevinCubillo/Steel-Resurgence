@@ -6,7 +6,6 @@ public class Spawner : MonoBehaviour{
 
 [Header("Settings")]
 [SerializeField] private int enemyCount = 10;
-[SerializeField] private GameObject testGo;
 
 [Header("Fixed Delay")]
 [SerializeField] private float delayBtwSpawns;

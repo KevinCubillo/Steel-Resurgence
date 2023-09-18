@@ -12,6 +12,9 @@ public class Enemy : MonoBehaviour
     private Vector3 lastPointPosition;
     private Vector3 CurrentPointPosition;
 
+    GameObject ResourceController;
+    private bool sentMesage;
+
 
     [SerializeField]
     float moveSpeed;
@@ -20,11 +23,15 @@ public class Enemy : MonoBehaviour
 
     public event Action<Enemy> OnEndReached;
 
-    [SerializeField] private Path Path;
+    [SerializeField] public Path Path;
 
     [Header ("Animation")]
     private Animator animator;
 
+    private void Awake()
+    {
+        ResourceController = GameObject.Find("ResourceController");
+    }
 
     private void Start()
     {
@@ -32,7 +39,7 @@ public class Enemy : MonoBehaviour
         animator = GetComponent<Animator>();
         enemyHealth = GetComponent<EnemyHealth>(); 
         CurrentPointPosition = Path.Positions[0];
-        Debug.Log("CurrentPointPosition" + CurrentPointPosition);
+        //Debug.Log("CurrentPointPosition" + CurrentPointPosition);
         currentWaypointIndex = 0;
     
     }
@@ -43,7 +50,7 @@ public class Enemy : MonoBehaviour
         Move();
         //Rotate();
         if (CurrentPointPositionReached()){
-            Debug.Log("CurrentPointPositionReached");
+            //Debug.Log("CurrentPointPositionReached");
          
             UpdateCurrentPointIndex(); 
             CurrentPointPosition = Path.Positions[currentWaypointIndex];
@@ -52,7 +59,7 @@ public class Enemy : MonoBehaviour
 
      private void Move()
      {
-        transform.position = Vector3.MoveTowards(transform.position, CurrentPointPosition, moveSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, CurrentPointPosition, moveSpeed * Time.deltaTime * GlobalValues.EnemySpeedMultiplier);
         
 
      }  
@@ -94,9 +101,22 @@ public class Enemy : MonoBehaviour
 
     private void EndPointReached()
     {
-       OnEndReached?.Invoke(this);
-       enemyHealth.ResetHealth();
-       EnemyPooler.ReturnToPool(gameObject);
+        OnEndReached?.Invoke(this);
+        if (!sentMesage)
+        {
+            sentMesage = true;
+            ResourceMessage message = new ResourceMessage();
+            message.name = "Lifes";
+            message.value = 1;
+            ResourceController.SendMessage("consumeResource", message);
+        }
+        enemyHealth.ResetHealth();
+        EnemyPooler.ReturnToPool(gameObject);
+    }
+
+    public void SetPath(Path path) {
+        Path = path;
+        transform.position = path.positions[0];
     }
     
 

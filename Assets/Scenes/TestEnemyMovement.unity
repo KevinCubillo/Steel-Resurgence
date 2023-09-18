@@ -561,7 +561,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &609330315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -576,10 +576,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positions:
   - {x: -6, y: -4.5, z: 0}
-  - {x: -4.5, y: -1, z: 10}
-  - {x: 0, y: -0.5, z: 10}
-  - {x: 1, y: 5, z: 10}
-  currPosition: {x: -6, y: -5.5, z: 10}
+  - {x: -4.5, y: -1, z: 0}
+  - {x: 0, y: -0.5, z: 0}
+  - {x: 1, y: 5, z: 0}
+  currPosition: {x: 0, y: 0, z: 0}
   NodeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &609330316
 MonoBehaviour:
@@ -593,7 +593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff4ec6d5a53663e44840d77e4f007685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 1015965488}
+  enemyPrefab: {fileID: 1812954651}
   poolSize: 10
 --- !u!114 &609330317
 MonoBehaviour:
@@ -608,7 +608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyCount: 10
-  testGo: {fileID: 1015965488}
+  testGo: {fileID: 652745016}
   delayBtwSpawns: 2
 --- !u!4 &609330318
 Transform:
@@ -619,7 +619,7 @@ Transform:
   m_GameObject: {fileID: 609330314}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6, y: -5.5, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -896,7 +896,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 652745016}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.29999998, y: 0.29999998, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1133,7 +1133,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1015965489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2072,7 +2072,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.7
-  Path: {fileID: 0}
+  Path: {fileID: 609330315}
 --- !u!212 &1812954660
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2597,7 +2597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.4
-  Path: {fileID: 0}
+  Path: {fileID: 609330315}
 --- !u!212 &2045585753
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2659,7 +2659,7 @@ RectTransform:
   m_GameObject: {fileID: 2045585744}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 0.29999998, y: 0.29999998, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.29999998, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 853274620}
@@ -2668,7 +2668,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.62, y: -4.93}
+  m_AnchoredPosition: {x: 28.619999, y: -17.763334}
   m_SizeDelta: {x: 3.215, y: 1.7932}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2147355138
@@ -2717,6 +2717,6 @@ SceneRoots:
   - {fileID: 1884478725}
   - {fileID: 1861410748}
   - {fileID: 1785975871}
-  - {fileID: 2045585754}
   - {fileID: 652745026}
   - {fileID: 1812954661}
+  - {fileID: 2045585754}

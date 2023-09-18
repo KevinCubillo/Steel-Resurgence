@@ -66,7 +66,7 @@ public class TurretSlotController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool clicked = Input.GetButtonDown("Fire1");
+        bool clicked = Time.timeScale > 0 && Input.GetButtonDown("Fire1");
         if (clicked) {
             Vector3 pos = Input.mousePosition;
             pos = camerac.ScreenToWorldPoint(pos);

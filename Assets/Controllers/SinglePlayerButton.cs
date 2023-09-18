@@ -31,6 +31,6 @@ public class SinglePlayerButton : MonoBehaviour
         //SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
         int level = 1;
         Time.timeScale = 1;
-        SceneManager.LoadScene("TestMapUI");
+        SceneManager.LoadScene("Level1");
     }
 }

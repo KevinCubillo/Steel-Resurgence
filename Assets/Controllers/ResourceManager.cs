@@ -5,6 +5,8 @@ using UnityEngine;
 public class ResourceManager : MonoBehaviour
 {
 
+    float cooldownTimer;
+
     [SerializeField]
     NumResource Lives;
 
@@ -15,31 +17,53 @@ public class ResourceManager : MonoBehaviour
     NumResource CardCooldown;
 
     [SerializeField]
+    NumResource Days;
+
+    [SerializeField]
     GameObject displayManager;
+
+    //[SerializeField]
+    GameObject powerGenerator;
 
     private void Awake()
     {
         Lives.reset();
         Scrap.reset();
         CardCooldown.reset();
+        Days.reset();
 
         displayManager.SendMessage("setLifes", Lives.value());
         displayManager.SendMessage("setScrap", Scrap.value());
-    }
+        displayManager.SendMessage("setDay", Days.value());
+        displayManager.SendMessage("setCooldown", CardCooldown.value());
 
-    [SerializeField]
-    int bonusEnergy;
+        powerGenerator = GameObject.Find("PowerGenerator");
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        cooldownTimer = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Time.timeScale > 0)
+        {
+            cooldownTimer += Time.deltaTime;
+            if (cooldownTimer >= 1 && CardCooldown.value() > 0)
+            {
+                cooldownTimer = 0;
+                CardCooldown.sub(1);
+                displayManager.SendMessage("setCooldown", CardCooldown.value());
+                if (CardCooldown.value() == 0)
+                {
+                    //Generate Card
+                    powerGenerator.SendMessage("GenerateCard");
+                }
+            }
+        }
     }
 
     void giveResource(ResourceMessage message)
@@ -56,6 +80,11 @@ public class ResourceManager : MonoBehaviour
                 break;
             case "Cooldown":
                 CardCooldown.add(message.value);
+                displayManager.SendMessage("setCooldown", CardCooldown.value());
+                break;
+            case "Day":
+                Days.add(message.value);
+                displayManager.SendMessage("setDay", Days.value());
                 break;
         }
     }
@@ -72,12 +101,59 @@ public class ResourceManager : MonoBehaviour
                 break;
             case "Cooldown":
                 CardCooldown.sub(message.value);
+                displayManager.SendMessage("setCooldown", CardCooldown.value());
+                break;
+            case "Day":
+                Days.sub(message.value);
+                displayManager.SendMessage("setDay", Days.value());
+                break;
+        }
+    }
+
+    void resetResource(ResourceMessage message)
+    {
+        switch (message.name)
+        {
+            case "Lifes":
+                Lives.reset();
+                displayManager.SendMessage("setLifes", Lives.value());
+                break;
+            case "Scrap":
+                Scrap.reset();
+                displayManager.SendMessage("setScrap", Scrap.value());
+                break;
+            case "Cooldown":
+                CardCooldown.reset();
+                displayManager.SendMessage("setCooldown", CardCooldown.value());
+                break;
+            case "Day":
+                Days.reset();
+                displayManager.SendMessage("setDay", Days.value());
                 break;
         }
     }
 
     void CanBuy(buyMessage message) {
         message.source.SendMessage(message.callbackMessage, message.cost <= Scrap.value());
+    }
+
+    void GetResourceValue(GetResourceMessage message)
+    {
+        switch (message.name)
+        {
+            case "Lifes":
+                message.source.SendMessage(message.callbackMessage, Lives.value());
+                break;
+            case "Scrap":
+                message.source.SendMessage(message.callbackMessage, Scrap.value());
+                break;
+            case "Cooldown":
+                message.source.SendMessage(message.callbackMessage, CardCooldown.value());
+                break;
+            case "Day":
+                message.source.SendMessage(message.callbackMessage, Days.value());
+                break;
+        }
     }
 }
 
@@ -179,6 +255,13 @@ struct ResourceMessage {
 
 struct buyMessage {
     public int cost;
+    public GameObject source;
+    public string callbackMessage;
+}
+
+struct GetResourceMessage
+{
+    public string name;
     public GameObject source;
     public string callbackMessage;
 }

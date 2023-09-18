@@ -22,7 +22,10 @@ public class ResourceDisplay : MonoBehaviour
     TMP_Text CooldownText;
 
     [SerializeField]
-    Image CardImage;
+    TMP_Text CardDesc;
+
+    [SerializeField]
+    GameObject CardImage;
 
 
     private void Awake()
@@ -51,5 +54,20 @@ public class ResourceDisplay : MonoBehaviour
     public void setScrap(int scrap)
     {
         ScrapLabel.text = "" + scrap;
+    }
+
+    public void setCooldown(int totalSeconds)
+    {
+        int seconds = totalSeconds % 60;
+        int minutes = (totalSeconds-seconds) / 60;
+        CooldownText.text = minutes + ":" + seconds;
+    }
+
+    public void setPower(GameObject power) {
+        CardPower p = power.GetComponent<CardPower>();
+        CardImage.GetComponent<Button>().image.sprite = p.image;
+        CardName.text = p.DisplayName;
+        CardDesc.text = p.Description;
+        CardImage.GetComponent<CardButton>().power = power;
     }
 }
