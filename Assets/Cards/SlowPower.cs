@@ -15,7 +15,7 @@ public class SlowPower : CardPower
     }
 
     public override void PowerFinished()
-{
-    GlobalValues.EnemySpeedMultiplier *= 1.0f / multiplier;
-}
+    {
+        GlobalValues.EnemySpeedMultiplier *= 1.0f / multiplier;
+    }
 }

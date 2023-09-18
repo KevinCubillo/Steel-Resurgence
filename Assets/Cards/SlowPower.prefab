@@ -46,6 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 20
   DisplayName: Rusted
-  Description: Enemies move 20% slower, for 20 seconds.
+  Description: Enemies move 50% slower, for 20 seconds.
   image: {fileID: 953364963, guid: dc466707b535ec4489ad17bcaa0cb65f, type: 3}
-  multiplier: 0.8
+  multiplier: 0.5

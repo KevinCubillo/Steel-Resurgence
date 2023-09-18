@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ResourceManager : MonoBehaviour
 {
@@ -25,6 +26,9 @@ public class ResourceManager : MonoBehaviour
     //[SerializeField]
     GameObject powerGenerator;
 
+    [SerializeField]
+    GameObject GameOverUI;
+
     private void Awake()
     {
         Lives.reset();
@@ -38,6 +42,8 @@ public class ResourceManager : MonoBehaviour
         displayManager.SendMessage("setCooldown", CardCooldown.value());
 
         powerGenerator = GameObject.Find("PowerGenerator");
+
+        
     }
 
     // Start is called before the first frame update
@@ -56,7 +62,7 @@ public class ResourceManager : MonoBehaviour
             {
                 cooldownTimer = 0;
                 CardCooldown.sub(1);
-                displayManager.SendMessage("setCooldown", CardCooldown.value());
+                displayManager.SendMessage("setCooldown", CardCooldown.value(), SendMessageOptions.DontRequireReceiver);
                 if (CardCooldown.value() == 0)
                 {
                     //Generate Card
@@ -94,6 +100,10 @@ public class ResourceManager : MonoBehaviour
             case "Lifes":
                 Lives.sub(message.value);
                 displayManager.SendMessage("setLifes", Lives.value());
+                if (Lives.value() == 0 && !GameOverUI.activeInHierarchy) {
+                    GameOverUI.SetActive(true);
+                    GameObject.Find("UI").SetActive(false);
+                }
                 break;
             case "Scrap":
                 Scrap.sub(message.value);

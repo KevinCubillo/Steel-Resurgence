@@ -8,11 +8,11 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - TurretRadius
   - Water
   - UI
-  - 
-  - 
+  - Projectile
+  - Enemy
   - 
   - 
   - 

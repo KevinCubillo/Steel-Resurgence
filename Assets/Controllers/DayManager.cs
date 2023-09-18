@@ -19,9 +19,20 @@ public class DayManager : MonoBehaviour
     string MapToLoad;
 
     // Start is called before the first frame update
-    void Start()
+    IEnumerator Start()
     {
-        waves[0].SetActive(true);
+        if (!once)
+        {
+            once = true;
+            yield return new WaitForSeconds(10);
+            waves[0].SetActive(true);
+        }
+    }
+
+    bool once;
+    private void Update()
+    {
+        
     }
 
     private void WavesFinished() {
@@ -63,7 +74,7 @@ public class DayManager : MonoBehaviour
         ResourceMessage message2 = new ResourceMessage();
         message2.name = "Lifes";
         message2.value = 0;
-        ResourceController.SendMessage("resetResource", message2);
+        //ResourceController.SendMessage("resetResource", message2);
     }
 
     private void DaysPassed(int days) {

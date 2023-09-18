@@ -60,7 +60,7 @@ public class ResourceDisplay : MonoBehaviour
     {
         int seconds = totalSeconds % 60;
         int minutes = (totalSeconds-seconds) / 60;
-        CooldownText.text = minutes + ":" + seconds;
+        CooldownText.text = minutes + ":" + (seconds < 10? "0" : "") + seconds;
     }
 
     public void setPower(GameObject power) {

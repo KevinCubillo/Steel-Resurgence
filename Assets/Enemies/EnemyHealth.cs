@@ -16,6 +16,7 @@ public class EnemyHealth: MonoBehaviour
     [SerializeField] private float initialHealth = 10f;
     [SerializeField] private float maxHealth = 10f;
     [SerializeField] public float ScrapValue;
+    [SerializeField] public string Weakness;
 
     public float CurrentHealth { get; set; }
     private float DamageMult = 1;
@@ -40,7 +41,7 @@ public class EnemyHealth: MonoBehaviour
         //DealDamage(0.01f);
         if (Input.GetKeyDown(KeyCode.I)){
         //Debug.Log("Enemy took damage");
-        DealDamage(1f);
+        DealDamage(new DamageMessage {type = "Kinetic", damage = 5 });
    
         }
             healthBar.fillAmount = CurrentHealth / maxHealth;// Mathf.Lerp(healthBar.fillAmount, CurrentHealth / maxHealth, Time.deltaTime * 10f);
@@ -54,13 +55,12 @@ public class EnemyHealth: MonoBehaviour
         healthBar = container.FillAmountImage;
     }
 
-    public void DealDamage(float damage){
+    public void DealDamage(DamageMessage damageMessage){
         //Debug.Log("Enemy took damage");
-        CurrentHealth -= damage * GlobalValues.DamageMultiplier;
+        CurrentHealth -= damageMessage.damage * GlobalValues.EnemyReceivedDamageMultiplier * (damageMessage.type == Weakness? 2f : 1);
         if (CurrentHealth <= 0){
             CurrentHealth = 0;
             Die();
-        
         }
         else{
             OnEnemyHit?.Invoke(enemy);
@@ -93,3 +93,7 @@ public class EnemyHealth: MonoBehaviour
     }
 }
 
+public struct DamageMessage {
+    public float damage;
+    public string type;
+}

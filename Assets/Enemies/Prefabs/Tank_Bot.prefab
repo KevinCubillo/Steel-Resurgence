@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3351507584958845208}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BarPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 5336604159547095007}
   - component: {fileID: 6546983252173704100}
   - component: {fileID: 2984051827281474158}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tank_Bot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,9 +108,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBarPrefab: {fileID: 1769922586780096811, guid: 677addeee0aa57548b6317fff1f26a26, type: 3}
   barPosition: {fileID: 3351507584958845208}
-  initialHealth: 50
-  maxHealth: 50
-  ScrapValue: 30
+  initialHealth: 6000
+  maxHealth: 6000
+  ScrapValue: 50
+  Weakness: EMP
 --- !u!50 &7257234323055017844
 Rigidbody2D:
   serializedVersion: 4
@@ -123,17 +124,17 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 72
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 128
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -150,10 +151,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 72
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -255,7 +256,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 916710409858590940}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TextDamageBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -292,7 +293,7 @@ GameObject:
   - component: {fileID: 1743242070942099071}
   - component: {fileID: 9055553591709543315}
   - component: {fileID: 8617541543120883251}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}

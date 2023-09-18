@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 369032462263713980}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TextDamageBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7175115772762744307}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BarPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   - component: {fileID: 3212019179862905763}
   - component: {fileID: 2585870277962872529}
   - component: {fileID: 1008871807789597880}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 6406965827493206460}
   - component: {fileID: 1495620055424651244}
   - component: {fileID: 2486160791193969284}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Shoot_Bot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -233,7 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03a71de3ec1d31d438ac263348beb34b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.35
+  moveSpeed: 0.3
   Path: {fileID: 0}
 --- !u!114 &4928584471167514298
 MonoBehaviour:
@@ -249,9 +249,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBarPrefab: {fileID: 1769922586780096811, guid: 677addeee0aa57548b6317fff1f26a26, type: 3}
   barPosition: {fileID: 7175115772762744307}
-  initialHealth: 15
-  maxHealth: 15
-  ScrapValue: 15
+  initialHealth: 3000
+  maxHealth: 3000
+  ScrapValue: 35
+  Weakness: EMP
 --- !u!50 &2401571368930318930
 Rigidbody2D:
   serializedVersion: 4
@@ -264,17 +265,17 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 72
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 128
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -291,10 +292,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 72
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

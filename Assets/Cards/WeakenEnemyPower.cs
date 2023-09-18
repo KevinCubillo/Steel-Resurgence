@@ -11,11 +11,11 @@ public class WeakenEnemyPower : CardPower
     // Start is called before the first frame update
     void Start()
     {
-        GlobalValues.DamageMultiplier *= multiplier;
+        GlobalValues.EnemyReceivedDamageMultiplier *= multiplier;
     }
 
     public override void PowerFinished()
     {
-        GlobalValues.DamageMultiplier *= 1.0f / multiplier;
+        GlobalValues.EnemyReceivedDamageMultiplier *= 1.0f / multiplier;
     }
 }

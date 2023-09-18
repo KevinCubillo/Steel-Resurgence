@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class DragNDropTurret : MonoBehaviour, IPointerDownHandler, IEndDragHandler, IBeginDragHandler, IDragHandler
 {
@@ -18,9 +19,29 @@ public class DragNDropTurret : MonoBehaviour, IPointerDownHandler, IEndDragHandl
     [SerializeField]
     GameObject SlotController;
 
+    [SerializeField]
+    TMP_Text TurretCost;
+
+    [SerializeField]
+    TMP_Text TurretDPS;
+
+    [SerializeField]
+    TMP_Text TurretRof;
+
+    [SerializeField]
+    TMP_Text TurretType;
+
+
     private void Awake()
     {
         TurretObjectData.SetVisualObject(visualObject);
+        GameObject TurretObject = TurretObjectData.getCurrentTurret();
+        Turret Data = TurretObject.GetComponent<Turret>();
+
+        TurretCost.text = "" + TurretObjectData.initialCost();
+        TurretDPS.text = "" + Data.DPS;
+        TurretRof.text = "" + Data.FireRate + "/s";
+        TurretType.text = "" + Data.DamageType;
     }
 
     // Start is called before the first frame update
@@ -31,7 +52,7 @@ public class DragNDropTurret : MonoBehaviour, IPointerDownHandler, IEndDragHandl
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Selector.SendMessage("setHeldObject", TurretObjectData.copy());
+        
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -42,7 +63,7 @@ public class DragNDropTurret : MonoBehaviour, IPointerDownHandler, IEndDragHandl
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        
+        Selector.SendMessage("setHeldObject", TurretObjectData.copy());
     }
 
     public void OnDrag(PointerEventData eventData)

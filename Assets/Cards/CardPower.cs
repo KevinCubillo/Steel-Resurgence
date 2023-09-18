@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public abstract class CardPower : MonoBehaviour
 {
     [SerializeField]
-    float duration;
+    public float duration;
 
     public string DisplayName;
     public string Description;
