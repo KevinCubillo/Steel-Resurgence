@@ -133,7 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Range: 8
   FireRate: 0.5
-  DPS: 54
+  DPS: 40
   ProjectileName: Rail1
   DamageType: Kinetic
 --- !u!58 &2023613178676033078

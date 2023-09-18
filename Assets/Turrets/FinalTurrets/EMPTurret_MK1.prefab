@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Range: 4
   FireRate: 0.25
-  DPS: 30
+  DPS: 25
   ProjectileName: Missile1
   DamageType: EMP
 --- !u!58 &7092083509130558205

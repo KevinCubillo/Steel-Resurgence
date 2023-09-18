@@ -75,7 +75,7 @@ MonoBehaviour:
   barPosition: {fileID: 3914327992081940168}
   initialHealth: 400
   maxHealth: 400
-  ScrapValue: 20
+  ScrapValue: 25
   Weakness: Heat
 --- !u!50 &1806229251326189591
 Rigidbody2D:

@@ -46,6 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 20
   DisplayName: Weakspots
-  Description: Deal 20% more damage, for 20 seconds.
+  Description: Deal 50% more damage, for 20 seconds.
   image: {fileID: -1429018871, guid: dc466707b535ec4489ad17bcaa0cb65f, type: 3}
-  multiplier: 1.2
+  multiplier: 1.5

@@ -131,9 +131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2c0ccfca14c4ff4cbfe5fe9e2763dec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Range: 5.5
+  Range: 5
   FireRate: 4
-  DPS: 100
+  DPS: 140
   ProjectileName: Laser1
   DamageType: Heat
 --- !u!58 &7938433930125101514

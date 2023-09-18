@@ -108,8 +108,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBarPrefab: {fileID: 1769922586780096811, guid: 677addeee0aa57548b6317fff1f26a26, type: 3}
   barPosition: {fileID: 3351507584958845208}
-  initialHealth: 6000
-  maxHealth: 6000
+  initialHealth: 5000
+  maxHealth: 5000
   ScrapValue: 50
   Weakness: EMP
 --- !u!50 &7257234323055017844

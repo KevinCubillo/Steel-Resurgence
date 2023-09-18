@@ -1114,8 +1114,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   emptyObject: {fileID: 7840174800535531218, guid: 5fbb65b200ff7a841884ee454a18d42e, type: 3}
   slotsPositions:
-  - {x: -5.5, y: -2.32, z: 0}
-  - {x: 2.66, y: -3.29, z: 0}
+  - {x: -5.43, y: -2.32, z: 0}
+  - {x: 2.64, y: -3.5, z: 0}
   - {x: -2.44, y: 2.58, z: 0}
   - {x: 2.1, y: 0, z: 0}
   - {x: 0.99, y: 2.59, z: 0}
@@ -1673,7 +1673,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 1.36}
+  m_AnchoredPosition: {x: 0, y: 0.74}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &196057730
@@ -1723,8 +1723,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1
-  m_fontSizeBase: 1
+  m_fontSize: 0.6
+  m_fontSizeBase: 0.6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3067,7 +3067,7 @@ MonoBehaviour:
   CardCooldown:
     minValue: 0
     maxValue: 120
-    initialValue: 120
+    initialValue: 60
   Days:
     minValue: 1
     maxValue: 7
@@ -3257,7 +3257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path: {fileID: 1820542880}
   enemyPrefab: {fileID: 7056907623140255193, guid: 9be472f57ef2e3141b44698ede3da703, type: 3}
-  poolSize: 5
+  poolSize: 15
   WaveController: {fileID: 0}
 --- !u!114 &427562090
 MonoBehaviour:
@@ -3271,7 +3271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a960ee2d235fbc40bad93ae9e0c15f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCount: 5
+  enemyCount: 15
   delayBtwSpawns: 5
 --- !u!4 &427562091
 Transform:
@@ -5223,7 +5223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path: {fileID: 1820542880}
   enemyPrefab: {fileID: 8261842504803182949, guid: db7169e1dc52bb645a5c47a9de03c27a, type: 3}
-  poolSize: 5
+  poolSize: 7
   WaveController: {fileID: 0}
 --- !u!114 &596534082
 MonoBehaviour:
@@ -5237,7 +5237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a960ee2d235fbc40bad93ae9e0c15f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCount: 5
+  enemyCount: 7
   delayBtwSpawns: 5
 --- !u!4 &596534083
 Transform:
@@ -6317,7 +6317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path: {fileID: 1820542880}
   enemyPrefab: {fileID: 987302493925205913, guid: 08c08fbd0ce0670439f977c793e36bf7, type: 3}
-  poolSize: 5
+  poolSize: 10
   WaveController: {fileID: 0}
 --- !u!114 &724221213
 MonoBehaviour:
@@ -6331,7 +6331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a960ee2d235fbc40bad93ae9e0c15f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCount: 5
+  enemyCount: 10
   delayBtwSpawns: 5
 --- !u!4 &724221214
 Transform:
@@ -8523,7 +8523,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path: {fileID: 1820542880}
   enemyPrefab: {fileID: 8372447154484990788, guid: fc902f9d3e2f1164493c07c10ad12637, type: 3}
-  poolSize: 10
+  poolSize: 15
   WaveController: {fileID: 0}
 --- !u!114 &1154777820
 MonoBehaviour:
@@ -8537,7 +8537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a960ee2d235fbc40bad93ae9e0c15f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCount: 10
+  enemyCount: 15
   delayBtwSpawns: 5
 --- !u!4 &1154777821
 Transform:
@@ -10160,7 +10160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path: {fileID: 1820542880}
   enemyPrefab: {fileID: 4683805443166694146, guid: 11ae1c56a7e70d34a9617a59571d6934, type: 3}
-  poolSize: 5
+  poolSize: 7
   WaveController: {fileID: 0}
 --- !u!114 &1317693668
 MonoBehaviour:
@@ -10174,7 +10174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a960ee2d235fbc40bad93ae9e0c15f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCount: 5
+  enemyCount: 7
   delayBtwSpawns: 5
 --- !u!4 &1317693669
 Transform:
@@ -20176,7 +20176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path: {fileID: 1820542880}
   enemyPrefab: {fileID: 275798848305750086, guid: 22dd47ad00f993346bebe3e63249aa74, type: 3}
-  poolSize: 5
+  poolSize: 10
   WaveController: {fileID: 0}
 --- !u!114 &1546926882
 MonoBehaviour:
@@ -20190,7 +20190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a960ee2d235fbc40bad93ae9e0c15f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCount: 5
+  enemyCount: 10
   delayBtwSpawns: 5
 --- !u!4 &1546926883
 Transform:
@@ -21371,7 +21371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path: {fileID: 1820542880}
   enemyPrefab: {fileID: 8372447154484990788, guid: fc902f9d3e2f1164493c07c10ad12637, type: 3}
-  poolSize: 10
+  poolSize: 20
   WaveController: {fileID: 0}
 --- !u!114 &1715277548
 MonoBehaviour:
@@ -21385,7 +21385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a960ee2d235fbc40bad93ae9e0c15f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCount: 10
+  enemyCount: 20
   delayBtwSpawns: 5
 --- !u!4 &1715277549
 Transform:
@@ -22334,8 +22334,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1
-  m_fontSizeBase: 1
+  m_fontSize: 0.6
+  m_fontSizeBase: 0.6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -22400,7 +22400,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -1.32}
+  m_AnchoredPosition: {x: 0, y: -0.83}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1820542879
